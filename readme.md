@@ -1,4 +1,11 @@
-# Machine Leaning Models for Loan Approval
+# Loan Approval Model and Analytics
+Table of Contents:
+
+- [Machine Leaning Models](#model)
+- [Loan Segmentation/Clustering](#clustering)
+
+
+# Machine Leaning Models for Loan Approval <a id="model"></a>
 
 ## 1. Exploratory Data Analysis (EDA)
 ### 1a. Data Duplicates
@@ -42,22 +49,22 @@ Numerical Features:
 
 | name     | n_bins    | iv | predictive power |
 | -------- | -------- | ------- |  ------- |
-| loan_percent_income  | 8  | 1.245736 | too good |
-| loan_int_rate | 8 | 1.117075 | too good |
-| person_income  | 8 | 0.608331 | too good |
-| loan_amnt | 5  | 0.177468 | medium |
-| person_emp_length | 7 | 0.128329 | medium |
-| person_age | 3 | 0.005389 | useless |
-| cb_person_cred_hist_length | 2 | 0.001252 | useless |
+| loan_percent_income  | 8  | 1.25 | too good |
+| loan_int_rate | 8 | 1.12 | too good |
+| person_income  | 8 | 0.61 | too good |
+| loan_amnt | 5  | 0.18 | medium |
+| person_emp_length | 7 | 0.13 | medium |
+| person_age | 3 | 0.0054 | useless |
+| cb_person_cred_hist_length | 2 | 0.0013 | useless |
 
 Categorical Features:
 
 | name     | n_bins    | iv | predictive power |
 | -------- | -------- | ------- |  ------- |
-| loan_grade  | 4  | 1.238536 | too good |
-| person_home_ownership | 3 | 0.601825 | too good |
-| cb_person_default_on_file  | 2 | 0.225575 | medium |
-| loan_intent | 6  | 0.095048 | weak |
+| loan_grade  | 4  | 1.24 | too good |
+| person_home_ownership | 3 | 0.60 | too good |
+| cb_person_default_on_file  | 2 | 0.23 | medium |
+| loan_intent | 6  | 0.095 | weak |
 
 ### 2b. Feature Transformation
 
@@ -112,3 +119,39 @@ The higher loan_percent_income, the higher the risk is. Loan_percent_income of 3
 - If a borrower has a default history, his loan is 2.5 times more likely to be a bad loan.
 
 View the Kaggle notebook [here](https://www.kaggle.com/code/rendyk/loan-approval)
+
+<br><br>
+
+# Loan Segmentation/Clustering <a id="clustering"></a>
+
+The second notebook segments the loans into 5 clusters with similar characteristics. The first 2 clusters are high-risk loans with a bad rate of 30% to 32%. The other 3 clusters have a bad rate of 3% to 13%.
+
+1. Big loan amount cluster (0)
+
+The first cluster is the loan that has a big amount of loans, usually more than USD 10,000. Hence, the percentage of loan to income is higher, which is more than 20%. Thirty-two percent of the loans are bad loans. This cluster has the highest risk.
+
+![alt text](images/cluster_0.png)
+
+2. High interest rate cluster (1)
+
+The second cluster also has high-risk loans due to the high interest rate. The majority of the loan interest rates are higher than 13%. The higher interest rate is decided because all of the users in this cluster have loan defaults in their histories. Thirty percent of loans in this cluster are bad loans.
+
+![alt text](images/cluster_1.png)
+
+3. Elder borrower cluster (2)
+
+The unique characteristic of this cluster is that the majority of the borrowers are older than 35 years old. Meanwhile, the other borrowers are younger than 35 years old. They also have the longest credit history.
+
+![alt text](images/cluster_2.png)
+
+4. Normal cluster (3)
+
+This cluster does not have special characteristics, except that the borrowers are the least likely to have a home mortgage. They prefer to rent their homes.
+
+![alt text](images/cluster_3.png)
+
+5. Borrowers with home mortgage cluster (4)
+
+This cluster is similar to the cluster (3), but with 2 differences. Almost all of the borrowers in this cluster have home mortgages. The income and employment length of the borrowers are slightly higher than those of the cluster (3) 
+
+![alt text](images/cluster_4.png)
