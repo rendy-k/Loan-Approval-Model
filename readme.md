@@ -3,6 +3,7 @@ Table of Contents:
 
 - [Machine Leaning Models](#model)
 - [Loan Segmentation/Clustering](#clustering)
+- [Anomaly detection](#anomaly)
 
 
 # Machine Leaning Models for Loan Approval <a id="model"></a>
@@ -155,3 +156,11 @@ This cluster does not have special characteristics, except that the borrowers ar
 This cluster is similar to the cluster (3), but with 2 differences. Almost all of the borrowers in this cluster have home mortgages. The income and employment length of the borrowers are slightly higher than those of the cluster (3) 
 
 ![alt text](images/cluster_4.png)
+
+<br><br>
+
+# Anomaly Detection <a id="anomaly"></a>
+
+Anomaly detection aims to identify the rare samples among the dataset. The Isolation Forest algorithm finds that 1% of the dataset samples have rare characteristics.
+
+Some of the anomaly samples are from borrowers who have defaulted loans in the past, but the recent loan has been paid off. Despite having past loan problems, the borrowers currently have higher incomes and apply for bigger loan amounts.
